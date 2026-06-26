@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elios</title>
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/images/elios-logo.png" class="brand-logo" />
+      <span>Elios</span>
+    </div>
+
+    <button id="new-chat" class="new-chat">+ Nouveau chat</button>
+
+    <input id="search-chat" class="search-chat" placeholder="Rechercher..." />
+
+    <div class="sidebar-title">Historique</div>
+    <div id="chat-history" class="chat-history"></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <h1 id="chat-title">Nouvelle discussion</h1>
+
+      <div class="top-actions">
+        <select id="model-select">
+          <option value="llama3.2:3b"></llama3></option>
+          <option value="mistral">mistral</option>
+          <option value="qwen2.5">qwen2.5</option>
+        </select>
+
+        <button id="rename-chat">Renommer</button>
+        <button id="pin-chat">Épingler</button>
+        <button id="theme-toggle">🌙</button>
+        <button id="delete-chat">Supprimer</button>
+      </div>
+    </header>
+
+    <section id="chat-messages" class="chat-messages"></section>
+
+    <div class="suggestions">
+      <button>Écris-moi du code HTML</button>
+      <button>Résume un texte</button>
+      <button>Traduis en anglais</button>
+      <button>Prépare un voyage</button>
+    </div>
+
+    <form id="chat-form" class="chat-form">
+      <input id="user-input" type="text" placeholder="Écris ton message..." autocomplete="off" />
+      <button type="submit">Envoyer</button>
+    </form>
+  </main>
+</div>
+<form id="chat-form" class="chat-form">
+  <label for="file-input" class="import-button">📎</label>
+  <input id="file-input" type="file" hidden />
+
+  <input id="user-input" type="text" placeholder="Écris ton message..." autocomplete="off" />
+  <button type="submit">Envoyer</button>
+</form>
+<script src="javascript/api.js"></script>
+</body>
+</html>

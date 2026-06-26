@@ -1,0 +1,275 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f7f3ea;
+  --sidebar: #eee6d8;
+  --panel: #fffaf5;
+  --text: #2d261f;
+  --muted: #7b7065;
+  --border: #ded2c0;
+  --accent: #c96442;
+  --assistant: #efe5d6;
+  --user: #c96442;
+}
+
+body.dark {
+  --bg: #1f1c18;
+  --sidebar: #28231e;
+  --panel: #332d26;
+  --text: #f6efe6;
+  --muted: #b7a999;
+  --border: #4b4036;
+  --assistant: #3a332b;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: DM Serif Display, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 285px;
+  padding: 18px;
+  background: var(--sidebar);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+
+.brand-logo:hover {
+  transform: rotate(12deg) scale(1.05);
+}
+
+.new-chat,
+.search-chat,
+.top-actions button,
+#model-select {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 11px;
+}
+
+.new-chat {
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.search-chat {
+  outline: none;
+}
+
+.sidebar-title {
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.chat-history {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-item {
+  border: none;
+  background: transparent;
+  text-align: left;
+  padding: 11px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.history-item.active,
+.history-item:hover {
+  background: var(--panel);
+  color: var(--text);
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.topbar h1 {
+  font-size: 1.2rem;
+}
+
+.top-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.top-actions button,
+#model-select {
+  cursor: pointer;
+}
+
+.chat-messages {
+  flex: 1;
+  padding: 34px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.empty-state {
+  margin: auto;
+  text-align: center;
+  color: var(--muted);
+}
+
+.empty-logo {
+  width: 72px;
+  height: 72px;
+  margin: auto;
+  border-radius: 20px;
+  object-fit: cover;
+  animation: sunPulse 2.2s infinite;
+}
+
+.message {
+  max-width: 720px;
+  padding: 15px 18px;
+  border-radius: 18px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.user-message {
+  align-self: flex-end;
+  background: var(--user);
+  color: white;
+}
+
+.ai-message {
+  align-self: flex-start;
+  background: var(--assistant);
+  border: 1px solid var(--border);
+}
+
+.loader-logo {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  animation: sunPulse 1.5s infinite;
+}
+
+.suggestions {
+  width: min(850px, 92%);
+  margin: 0 auto 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.suggestions button {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 9px 13px;
+  cursor: pointer;
+}
+
+.chat-form {
+  width: min(850px, 92%);
+  margin: 0 auto 24px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+}
+
+#user-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 14px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.chat-form button {
+  border: none;
+  border-radius: 14px;
+  padding: 0 20px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@keyframes sunPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(201, 100, 66, 0.35);
+  }
+
+  70% {
+    transform: scale(1.06);
+    box-shadow: 0 0 0 18px rgba(201, 100, 66, 0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+.import-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.import-button:hover {
+  background: var(--assistant);
+  color: var(--text);
+}
