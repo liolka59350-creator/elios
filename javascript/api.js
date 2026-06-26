@@ -61,7 +61,7 @@ function renderHistory() {
       button.classList.add("active");
     }
 
-    button.textContent = chat.pinned ? "⭐ " + chat.title : chat.title;
+    button.textContent = chat.pinned ? "📍 " + chat.title : chat.title;
 
     button.addEventListener("click", () => {
       currentChatId = chat.id;
@@ -205,7 +205,7 @@ chatForm.addEventListener("submit", async (e) => {
     removeLoader();
 
     chat.messages.push({
-      role: "assistant",
+      role: "Elios",
       content: "Erreur : impossible de contacter Elios API. Vérifie que le serveur Render est bien actif."
     });
 
