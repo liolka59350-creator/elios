@@ -293,3 +293,11 @@ if (chats.length === 0) {
   renderHistory();
   renderMessages();
 }
+const mobileMenu = document.getElementById("mobile-menu");
+const sidebar = document.querySelector(".sidebar");
+
+if (mobileMenu && sidebar) {
+  mobileMenu.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+  });
+}
